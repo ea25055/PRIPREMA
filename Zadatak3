@@ -1,0 +1,167 @@
+
+public class Clan {
+ private int clanskiBroj;
+ private String imePrezime;
+ private int godine;
+ private int brojTreninga;
+ private boolean trener;
+ private boolean sauna;
+ public static double osnovnaClanarina;
+ 
+ public Clan(int clanskiBroj, String imePrezime, int godine, int brojTreninga, boolean trener, boolean sauna) {
+	super();
+	this.setClanskiBroj(clanskiBroj);
+	this.imePrezime = imePrezime;
+	this.setGodine (godine);
+	this.brojTreninga = brojTreninga;
+	this.trener = trener;
+	this.sauna = sauna;
+ }
+ public Clan() {
+	super();
+ }
+ public String toString() {
+	return "Clan [clanskiBroj=" + clanskiBroj + ", imePrezime=" + imePrezime + ", godine=" + godine + ", brojTreninga="
+			+ brojTreninga + ", trener=" + trener + ", sauna=" + sauna + "]";
+ }
+ public int getClanskiBroj() {
+	return clanskiBroj;
+ }
+ public void setClanskiBroj(int clanskiBroj) {
+	 if (clanskiBroj >= 100 && clanskiBroj <= 999) {
+	this.clanskiBroj = clanskiBroj;
+	 }
+ }
+ public String getImePrezime() {
+	return imePrezime;
+ }
+ public void setImePrezime(String imePrezime) {
+	this.imePrezime = imePrezime;
+ }
+ public int getGodine() {
+	return godine;
+ }
+ public void setGodine(int godine) {
+	 if(godine>=16 && godine<=80) {
+		this.godine=godine; 
+	 } 
+ }
+ public int getBrojTreninga() {
+	return brojTreninga;
+ }
+ public void setBrojTreninga(int brojTreninga) {
+	this.brojTreninga = brojTreninga;
+ }
+ public boolean isTrener() {
+	return trener;
+ }
+ public void setTrener(boolean trener) {
+	this.trener = trener;
+ }
+ public boolean isSauna() {
+	return sauna;
+ }
+ public void setSauna(boolean sauna) {
+	this.sauna = sauna;
+ }
+ 
+ public double izracunajClanarinu() {
+	 double clanarina = osnovnaClanarina + getBrojTreninga()*2;
+	 if(isTrener()==true) {
+		 clanarina = clanarina + 30.00;
+	 } if (isSauna()==true) {
+			 clanarina = clanarina + 10;
+	 }if(getGodine()<18) {
+				 clanarina = clanarina -  clanarina * 0.20;
+			 }
+		
+	 return clanarina;
+ }
+    public String infoOClanu() {
+    	return toString();
+    }
+}
+
+import java.util.ArrayList;
+public class TestClan {
+	
+   public static void stampajClanove (ArrayList<	Clan>lista) {
+	   for (Clan c:lista) {
+		   System.out.println(c);
+	   }
+   }
+	   
+	  public static void korisniciUslugeTrenera(ArrayList<Clan>lista) {
+		  for (Clan c:lista) {
+			  if(c.isTrener() == true) {
+				  System.out.print(c);
+			 }
+		  }
+	  }
+      public static void maloletniKorisnici (ArrayList<Clan>lista) {
+    	for (Clan c:lista) {
+    		if (c.getGodine()<18) {
+    			System.out.println(c);
+       }
+    	} 
+ }
+       public static double ukupnaZarada(ArrayList<Clan>lista) {
+    	   double ukupno = 0.00;
+    	   for (Clan c:lista) {
+    		   ukupno = ukupno + c.izracunajClanarinu();
+    	   } return ukupno;
+       }
+        public static Clan najvecaClanarina(ArrayList<Clan>lista) {
+        	Clan najvecaClanarina = lista.get(0);
+        	for(Clan c:lista) {
+        		if(c.izracunajClanarinu()>najvecaClanarina.izracunajClanarinu())	{
+        			najvecaClanarina = c;
+        		}
+         	}
+        	return najvecaClanarina;
+        }
+      public static double prosjekTreninga (ArrayList<Clan>lista) {
+    	  double ukupno = 0;
+    	  for (Clan c:lista) {
+    		 ukupno = ukupno + c.getBrojTreninga();
+    	  }
+    	  double prosjekk = ukupno/lista.size();
+        return prosjekk;
+      }
+      
+      
+      
+	public static void main(String[] args) {
+		Clan.osnovnaClanarina = 15.00;
+		Clan c1 = new Clan (123,"Hana Nisic",19,3,true,false);
+		Clan c2 = new Clan (234,"Sofija Simonovic", 19, 4,true,false);
+		Clan c3 = new Clan(566,"Nejla Adrovic", 17, 2,false,false);
+		Clan c4 = new Clan (677,"Amer Adrovic", 51, 4,true,true);
+		Clan c5 = new Clan (489,"Rijad Suljovic", 24, 5,true,true);
+		Clan c6 = new Clan (454, "Dzenan Kalic", 22, 2, false,false);
+		
+		ArrayList<Clan>lista = new ArrayList<Clan>();
+		lista.add(c1);
+		lista.add(c2);
+		lista.add(c3);
+		lista.add(c4);
+		lista.add(c5);
+		lista.add(c6);
+		stampajClanove(lista);
+		korisniciUslugeTrenera(lista);
+		maloletniKorisnici(lista);
+		ukupnaZarada(lista);
+		najvecaClanarina(lista);
+		prosjekTreninga(lista);
+	}
+
+}
+
+
+
+
+
+
+
+
+
