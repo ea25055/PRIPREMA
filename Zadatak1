@@ -1,0 +1,160 @@
+
+public class Automobil {
+private String registracija;
+private String marka;
+private int godiste;
+private int brojSedista;
+private boolean klima;
+private boolean automatik;
+private static int osnovnaCijena;
+
+public Automobil(String registracija, String marka, int godiste, int brojSedista,
+		boolean klima, boolean automatik) {
+	super();
+	this.registracija = registracija;
+	this.marka = marka;
+	this.godiste = godiste;
+	this.brojSedista = brojSedista;
+	this.klima = klima;
+	this.automatik = automatik;
+}
+
+public String getRegistracija() {
+	return registracija;
+}
+
+public void setRegistracija(String registracija) {
+	this.registracija = registracija;
+}
+
+public String getMarka() {
+	return marka;
+}
+
+public void setMarka(String marka) {
+	this.marka = marka;
+}
+
+public int getGodiste() {
+	return godiste;
+}
+
+public void setGodiste(int godiste) {
+	if (godiste >= 2000 && godiste <= 2026 ) {
+		this.godiste = godiste;
+	} else {
+		this.godiste= 2000;
+	}
+}
+
+public int getBrojSedista() {
+	return brojSedista;
+}
+
+public void setBrojSedista(int brojSedista) {
+	this.brojSedista = brojSedista;
+}
+
+public boolean isKlima() {
+	return klima;
+}
+
+public void setKlima(boolean klima) {
+	this.klima = klima;
+}
+
+public boolean isAutomatik() {
+	return automatik;
+}
+
+public void setAutomatik(boolean automatik) {
+	this.automatik = automatik;
+}
+
+public static int getOsnovnaCijena() {
+	return osnovnaCijena;
+}
+
+public static void setOsnovnaCijena(int osnovnaCijena) {
+	Automobil.osnovnaCijena = osnovnaCijena;
+}
+  public int izracunajStarost () {
+	  return 2026 - godiste;
+  }
+   public double izracunajCijenu () {
+	int cijena = osnovnaCijena + brojSedista * 3;
+	if (klima == true) {
+		cijena = cijena + 5;
+	}
+	if (automatik == true) {
+		cijena = cijena + 10;
+	}
+	return cijena;
+}
+   public String infoOAutomobilu () {
+	  return "\n Marka = " + marka 
+	+  "\n Registracija = " + registracija
+	+ "\n Broj sjedista = " + brojSedista
+	+ "\n Godiste = "+ godiste
+	+ "\n klima = " + klima
+	+ "\n automatk = " + automatik;
+   }
+}
+import java.util.ArrayList;
+
+public class TestAutomobil {
+
+	public static void main(String[] args) {
+		Automobil.setOsnovnaCijena(20);
+		Automobil auto1 = new Automobil ("PG FZ 303", "AUDI", 2006, 5, true, true);
+		Automobil auto2 = new Automobil ("BD IZ 233", "MERCEDES", 2003, 5, true, false);
+		Automobil auto3 = new Automobil ("RO AZ 233", "RENAULT", 2013, 5, false, false);
+		Automobil auto4 = new Automobil ("PG YN 123", "AUDI", 2020, 2, true, false);
+		Automobil auto5 = new Automobil ("TZ AV 456", "TOUREG", 2022, 5, true, true);
+		
+     ArrayList<Automobil> lista = new ArrayList<>();
+     lista.add(auto1);
+     lista.add(auto2);
+     lista.add(auto3);
+     lista.add(auto4);
+     lista.add(auto5);
+      
+     for(int i=0;i<lista.size();i++) {
+    	 System.out.println(lista.get(i).infoOAutomobilu());
+     }
+     
+     for (int i = 0;i<lista.size();i++) {
+	 if (lista.get(i).isAutomatik()== true) {
+     System.out.println(lista.get(i).infoOAutomobilu());
+      }
+     }
+     
+     for (int i=0; i<lista.size(); i++) {
+    	 if(lista.get(i).getGodiste()<2000) {
+    		 System.out.println(lista.get(i).infoOAutomobilu());
+    	  }
+     }
+     
+     double zarada = 0;
+     for (int i=0; i<lista.size(); i++) {
+    	 zarada = zarada + lista.get(i).izracunajCijenu();
+     }
+     System.out.println("Zarada je " + zarada);
+     
+     double najskupljiAuto = 0;
+     Automobil najskupljiAutomobil = null;
+	for (int i = 0; i<lista.size(); i++) {
+		if (lista.get(i).izracunajCijenu() > najskupljiAuto) {
+			najskupljiAuto =lista.get(i).izracunajCijenu();
+             najskupljiAutomobil = lista.get(i);
+		}
+	}
+		System.out.println(najskupljiAutomobil.infoOAutomobilu());
+		
+	}
+	
+}
+
+
+
+
