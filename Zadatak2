@@ -1,0 +1,177 @@
+
+public class Knjiga {
+  private int sifra;
+  private String naziv;
+  private String autor;
+  private int brojStrana;
+  private int godinaIzdanja;
+  private boolean dostupna;
+  public static double cijenaPoStranici;
+  public Knjiga(int sifra, String naziv, String autor, int brojStrana, int godinaIzdanja, boolean dostupna) {
+	super();
+	this.setSifra(sifra);
+	this.naziv = naziv;
+	this.autor = autor;
+	this.setBrojStrana(brojStrana);
+	this.godinaIzdanja = godinaIzdanja;
+	this.dostupna = dostupna;
+  }
+  public Knjiga() {
+	super();
+  }
+  public int getSifra() {
+	return sifra;
+  }
+  public void setSifra(int sifra) {
+	  if (sifra >= 1000 && sifra <= 9999) {
+	  this.sifra = sifra;
+	  } else {
+		  this.sifra = 0;
+	  }
+  }
+  public String getNaziv() {
+	return naziv;
+  }
+  public void setNaziv(String naziv) {
+	this.naziv = naziv;
+  }
+  public String getAutor() {
+	return autor;
+  }
+  public void setAutor(String autor) {
+	this.autor = autor;
+  }
+  public int getBrojStrana() {
+	return brojStrana;
+  }
+  public void setBrojStrana(int brojStrana) {
+	  if (brojStrana>0) {
+		 this.brojStrana = brojStrana;
+	  }
+  }
+  public int getGodinaIzdanja() {
+	return godinaIzdanja;
+  }
+  public void setGodinaIzdanja(int godinaIzdanja) {
+	this.godinaIzdanja = godinaIzdanja;
+  }
+  public boolean isDostupna() {
+	return dostupna;
+  }
+  public void setDostupna(boolean dostupna) {
+	this.dostupna = dostupna;
+  }
+ 
+  public int  dajStarost() {
+	  int starost = 2026 - getGodinaIzdanja();
+	  return starost;
+  }
+    public double izracunajCijenu() {
+    	double cijena = getBrojStrana()*cijenaPoStranici;
+    	if (getGodinaIzdanja()<2010) {
+    		cijena = cijena - cijena * 0.20;
+    	}
+    	return cijena;
+    }
+    
+    public String infoOKnjizi() {
+    	return toString();
+    }
+    
+  public String toString() {
+	return "Knjiga [sifra=" + sifra + ", naziv=" + naziv + ", autor=" + autor + ", brojStrana=" + brojStrana
+			+ ", godinaIzdanja=" + godinaIzdanja + ", dostupna=" + dostupna + "]";
+  }
+  
+}
+import java.util.ArrayList;
+public class TestKnjiga {
+
+	 public static void stampajKnjige(ArrayList<Knjiga> lista) {
+		 for (Knjiga k:lista) {
+			 System.out.println(k);
+		 }
+	 }
+	 public static void ispisiDostupne (ArrayList<Knjiga>lista) {
+		 for(Knjiga k:lista) {
+			 if(k.isDostupna()== true) {
+				 System.out.println(k);
+			 }
+		 }
+	 }
+	public static void viseOdTrista(ArrayList<Knjiga>lista) {
+		for (Knjiga k:lista) {
+			if(k.getBrojStrana()>300) {
+				System.out.println(k);
+			}
+		}
+	}
+	public static double ukupnaVrijednost (ArrayList<Knjiga>lista) {
+		double ukupno = 0.00;
+		for (Knjiga k:lista) {
+		 ukupno = ukupno + k.izracunajCijenu();
+		}
+		return ukupno;
+	}
+	 public static Knjiga najstarijaKnjiga(ArrayList<Knjiga>lista) {
+		Knjiga najstarijaKnjiga = lista.get(0);
+		 for (Knjiga k:lista) {
+			 if(k.getGodinaIzdanja() < najstarijaKnjiga.getGodinaIzdanja()) {
+				 najstarijaKnjiga = k;
+				  }
+			 }
+		 return najstarijaKnjiga;
+	 }
+	
+	 public static double prosjecnaCijena(ArrayList<Knjiga>lista) {
+		 double prosjek =ukupnaVrijednost(lista)/lista.size();
+		 return prosjek;
+		 
+	 }
+	 
+	 
+	 
+	 
+	public static void main(String[] args) {
+		Knjiga.cijenaPoStranici = 0.15;
+		
+		Knjiga k1 = new Knjiga(1234,"Knjiga o Dzungli", "Hana Nisic", 324,2009,true);
+		Knjiga k2 = new  Knjiga (2345,"Rasadnik", "Sofija Simonovic", 202, 2002, false);
+		Knjiga k3 = new Knjiga(1223,"Na Drini Cuprija","Ivo Andric",320,1945,true);
+		Knjiga k4 = new Knjiga (4567,"Mali Princ","Antonie de Saint", 96, 1943, false);
+		Knjiga k5 = new Knjiga (9876,"Dervis i smrt", "Mesa Selimovic", 400, 1966, true);
+		
+	ArrayList<Knjiga> lista = new ArrayList<Knjiga>();
+      lista.add(k1);
+      lista.add(k2);
+      lista.add(k3);
+      lista.add(k4);
+      lista.add(k5);
+      
+      stampajKnjige(lista);
+      ispisiDostupne(lista);
+      viseOdTrista(lista);
+      ukupnaVrijednost(lista);
+      prosjecnaCijena(lista);
+      najstarijaKnjiga(lista);
+      
+	}
+	
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
