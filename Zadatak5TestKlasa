@@ -1,0 +1,81 @@
+import java.util.ArrayList;
+public class TestAranzman {
+
+	public static void ispisiAranzman(ArrayList<Aranzman>lista) {
+		for(Aranzman a:lista) {
+			System.out.println(a);
+		}
+	}
+    public static void avionskiPrevoz(ArrayList<Aranzman>lista) {
+    	for (Aranzman a:lista) {
+    		if (a.isAvion()==true) {
+    			System.out.println(a);
+    		}
+    	}
+    }
+    public static void duziOdSedamDana(ArrayList<Aranzman>lista) {
+    	for (Aranzman a:lista) {
+    		if(a.getBrojDana()>7) {
+    			System.out.print(a);
+    		}
+    	}
+    }
+	public static double ukupnaVrijednostSvih(ArrayList<Aranzman>lista) {
+		double vrijednost = 0;
+		for (Aranzman a:lista) {
+		 vrijednost = vrijednost + a.izracunajCijenu();
+		}
+		return vrijednost;
+	}
+	public static Aranzman najjeftinijiAranzman(ArrayList<Aranzman>lista) {
+		Aranzman najjeftinijiAranzman = lista.get(0);
+		for (Aranzman a:lista) {
+			if(a.izracunajCijenu()<najjeftinijiAranzman.izracunajCijenu()) {
+				najjeftinijiAranzman=a;
+			}
+		}
+			return najjeftinijiAranzman;	
+	}
+	
+	public static double prosjecanBrojDana(ArrayList<Aranzman>lista) {
+		int ukupnoDana = 0;
+		for (Aranzman a:lista) {
+			ukupnoDana = ukupnoDana+a.getBrojDana();
+		}
+		double prosjek = ukupnoDana / lista.size();
+		return prosjek;
+	}
+	  public static int brojAllInclusive(ArrayList<Aranzman>lista) {
+		  int karticaAllInclusive = 0;
+		  for (Aranzman a:lista) {
+			  if(a.isAllInclusive()== true) {
+				  karticaAllInclusive = karticaAllInclusive + 1;
+			  }
+		  }
+			  return karticaAllInclusive;
+		  }
+	  
+	public static void main(String[] args) {
+		Aranzman.cijenaPoDanu = 40.00;
+		Aranzman a1 = new Aranzman (123,"Milano",5,4,true,false);
+		Aranzman a2 = new Aranzman (234,"New York", 4,3,false,false);
+		Aranzman a3 = new Aranzman (567,"Tokio", 8,4,true,true);
+		Aranzman a4 = new Aranzman(556,"Istanbul",6,7,false,true);
+		
+		ArrayList<Aranzman>lista = new ArrayList<Aranzman>();
+		lista.add(a1);
+		lista.add(a2);
+		lista.add(a3);
+		lista.add(a4);
+		//ispisiAranzman(lista);
+		// avionskiPrevoz(lista);
+		//duziOdSedamDana(lista);
+		// System.out.println(ukupnaVrijednostSvih(lista));
+	  //  System.out.println(najjeftinijiAranzman(lista));
+		// System.out.println(prosjecanBrojDana(lista));
+		System.out.println(brojAllInclusive(lista));
+		
+	}
+	
+
+}
