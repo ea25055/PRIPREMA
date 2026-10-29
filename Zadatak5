@@ -1,0 +1,126 @@
+
+public class Aranzman {
+private int sifra;
+private String destinacija;
+private int brojDana;
+private int brojOsoba;
+private boolean avion;
+private boolean allInclusive;
+public static double cijenaPoDanu;
+public Aranzman(int sifra, String destinacija, int brojDana, int brojOsoba, boolean avion, boolean allInclusive) {
+	super();
+	this.setSifra (sifra);
+	this.destinacija = destinacija;
+	this.setBrojDana (brojDana);
+	this.setBrojOsoba (brojOsoba);
+	this.avion = avion;
+	this.allInclusive = allInclusive;
+}
+public Aranzman() {
+	super();
+}
+public int getSifra() {
+	return sifra;
+}
+public void setSifra(int sifra) {
+	if(sifra>= 100 && sifra<= 999) {
+	this.sifra = sifra;
+	}
+}
+public String getDestinacija() {
+	return destinacija;
+}
+public void setDestinacija(String destinacija) {
+	this.destinacija = destinacija;
+}
+public int getBrojDana() {
+	return brojDana;
+}
+public void setBrojDana(int brojDana) {
+	if(brojDana>= 1 && brojDana<= 30) {
+	this.brojDana = brojDana;
+	}
+}
+public int getBrojOsoba() {
+	return brojOsoba;
+}
+public void setBrojOsoba(int brojOsoba) {
+	if(brojOsoba>0) {
+	this.brojOsoba = brojOsoba;
+	}
+}
+public boolean isAvion() {
+	return avion;
+}
+public void setAvion(boolean avion) {
+	this.avion = avion;
+}
+public boolean isAllInclusive() {
+	return allInclusive;
+}
+public void setAllInclusive(boolean allInclusive) {
+	this.allInclusive = allInclusive;
+}
+public String toString() {
+	return "Aranzman [sifra=" + sifra + ", destinacija=" + destinacija + ", brojDana=" + brojDana + ", brojOsoba="
+			+ brojOsoba + ", avion=" + avion + ", allInclusive=" + allInclusive + "cijena="+ izracunajCijenu();
+}
+public double izracunajCijenu() {
+	double cijena = getBrojDana()*cijenaPoDanu*getBrojOsoba();
+	if (isAvion()== true) {
+		cijena = cijena + getBrojOsoba()*100.00;
+	}
+	if (isAllInclusive()== true) {
+		cijena = cijena + getBrojOsoba()*getBrojDana()*20.00;
+	}
+	return cijena;
+}
+	public String dajTipPutovanja() {
+		if(getBrojDana()<= 5) {
+			return("Kratko putovanje");
+		} else {
+			return ("Dugo putovanje");
+	       	}
+		}
+	public String infoOAranzmanu() {
+		return toString();
+	}
+	
+}
+import java.util.ArrayList;
+public class TestAranzman {
+
+	public static void ispisiAranzman(ArrayList<Aranzman>lista) {
+		for(Aranzman a:lista) {
+			System.out.println(a);
+		}
+	}
+    public static void avionskiPrevoz(ArrayList<Aranzman>lista) {
+    	for (Aranzman a:lista) {
+    		if (a.isAvion()==true) {
+    			System.out.println(a);
+    		}
+    	}
+    }
+	
+	
+	
+	public static void main(String[] args) {
+		Aranzman.cijenaPoDanu = 40.00;
+		Aranzman a1 = new Aranzman (123,"Milano",5,4,true,false);
+		Aranzman a2 = new Aranzman (234,"New York", 4,3,false,false);
+		Aranzman a3 = new Aranzman (567,"Tokio", 3,4,true,true);
+		Aranzman a4 = new Aranzman(556,"Istanbul",6,7,false,true);
+		
+		ArrayList<Aranzman>lista = new ArrayList<Aranzman>();
+		lista.add(a1);
+		lista.add(a2);
+		lista.add(a3);
+		lista.add(a4);
+		//ispisiAranzman(lista);
+		avionskiPrevoz(lista);
+	}
+	
+
+}
+
