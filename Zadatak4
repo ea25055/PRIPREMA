@@ -1,0 +1,162 @@
+import java.util.ArrayList;
+public class TestClan {
+	
+   public static void stampajClanove (ArrayList<	Clan>lista) {
+	   for (Clan c:lista) {
+		   System.out.println(c);
+	   }
+   }
+	   
+	  public static void korisniciUslugeTrenera(ArrayList<Clan>lista) {
+		  for (Clan c:lista) {
+			  if(c.isTrener() == true) {
+				  System.out.print(c);
+			 }
+		  }
+	  }
+      public static void maloletniKorisnici (ArrayList<Clan>lista) {
+    	for (Clan c:lista) {
+    		if (c.getGodine()<18) {
+    			System.out.println(c);
+       }
+    	} 
+ }
+       public static double ukupnaZarada(ArrayList<Clan>lista) {
+    	   double ukupno = 0.00;
+    	   for (Clan c:lista) {
+    		   ukupno = ukupno + c.izracunajClanarinu();
+    	   } return ukupno;
+       }
+        public static Clan najvecaClanarina(ArrayList<Clan>lista) {
+        	Clan najvecaClanarina = lista.get(0);
+        	for(Clan c:lista) {
+        		if(c.izracunajClanarinu()>najvecaClanarina.izracunajClanarinu())	{
+        			najvecaClanarina = c;
+        		}
+         	}
+        	return najvecaClanarina;
+        }
+      public static double prosjekTreninga (ArrayList<Clan>lista) {
+    	  double ukupno = 0;
+    	  for (Clan c:lista) {
+    		 ukupno = ukupno + c.getBrojTreninga();
+    	  }
+    	  double prosjekk = ukupno/lista.size();
+        return prosjekk;
+      }
+      
+      
+      
+	public static void main(String[] args) {
+		Clan.osnovnaClanarina = 15.00;
+		Clan c1 = new Clan (123,"Hana Nisic",19,3,true,false);
+		Clan c2 = new Clan (234,"Sofija Simonovic", 19, 4,true,false);
+		Clan c3 = new Clan(566,"Nejla Adrovic", 17, 2,false,false);
+		Clan c4 = new Clan (677,"Amer Adrovic", 51, 4,true,true);
+		Clan c5 = new Clan (489,"Rijad Suljovic", 24, 5,true,true);
+		Clan c6 = new Clan (454, "Dzenan Kalic", 22, 2, false,false);
+		
+		ArrayList<Clan>lista = new ArrayList<Clan>();
+		lista.add(c1);
+		lista.add(c2);
+		lista.add(c3);
+		lista.add(c4);
+		lista.add(c5);
+		lista.add(c6);
+		stampajClanove(lista);
+		korisniciUslugeTrenera(lista);
+		maloletniKorisnici(lista);
+		ukupnaZarada(lista);
+		najvecaClanarina(lista);
+		prosjekTreninga(lista);
+	}
+
+}
+import java.util.ArrayList;
+public class LapTopTest {
+
+	 public static void stampajLapTopove (ArrayList<LapTop>lista) {
+	for(LapTop l:lista) {
+		System.out.println(l);
+	}
+	 }	
+	public static void ramMemorija (ArrayList<LapTop>lista) {
+		for(LapTop l:lista) {
+			if(l.getRam()>=16) {
+				System.out.println(l);
+			}
+		}
+	}
+	 public static void saTouchScreenom(ArrayList<LapTop>lista) {
+		 for(LapTop l:lista) {
+			 if(l.isTouchScreen()== true) {
+				 System.out.println(l);
+			 }
+		 }
+	 }
+	public static double vrijedostUkupna (ArrayList<LapTop>lista) {
+		double cijena = 0;
+		for(LapTop l:lista) {
+			cijena = cijena + l.izracunajCijenu();
+		}
+		return cijena;
+	}
+	public static LapTop najskupljiLaptop(ArrayList<LapTop>lista) {
+		LapTop najskupljiLaptop = lista.get(0);
+		for (LapTop l:lista) {
+			if(l.izracunajCijenu()>najskupljiLaptop.izracunajCijenu()) {
+				najskupljiLaptop = l;
+			}
+		}
+		return najskupljiLaptop;
+	}
+	public static int produzenaGarancijaBroj(ArrayList<LapTop>lista) {
+		int brojac = 0;
+		for(LapTop l:lista) {
+			if(l.isGarancija()== true) {
+				brojac ++;
+			}
+		}
+		return brojac;
+		
+		
+	}
+	public static void main(String[] args) {
+	LapTop.osnovnaCijena = 250.00;
+     LapTop l1 = new LapTop (5677,"Apple",232,678,true,true);
+     LapTop l2 = new LapTop (5678,"Lenovo",342,222,false,true);
+     LapTop l3 = new LapTop(9878,"Asus", 221,245,true,false);
+     LapTop l4 = new LapTop(1232,"Lenovo",112,129,false,false);
+     LapTop l5 = new LapTop(4039,"Apple", 233,232,true,false);
+     
+	ArrayList<LapTop>lista = new ArrayList<LapTop>();
+	lista.add(l1);
+	lista.add(l2);
+	lista.add(l3);
+	lista.add(l4);
+	lista.add(l5);
+	//stampajLapTopove(lista);
+	//ramMemorija(lista);
+	//saTouchScreenom(lista);
+	//vrijedostUkupna(lista);
+	//najskupljiLaptop(lista);
+	produzenaGarancijaBroj(lista);
+	}
+ 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
