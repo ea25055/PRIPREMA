@@ -1,0 +1,94 @@
+
+public class Zadaci1 {
+   
+	  public static String dajPodatke (String podaci) {
+		  String [] niz = podaci.split(";");
+		  return "Ime: " + niz[0] + " " + "Godine:"
+		  		+ " " + niz[1] + " " + "Grad: " + niz[2] + " ";
+	  }
+	       public static String podaciIGodine (String s) {
+	    	   String [] niz = s.split(";");
+	    	   int godine = Integer.parseInt(niz[1]);
+	    	   godine = godine + 5;
+           
+	    	   return "Ime: " + niz[0] + " " + "Godine: " + niz[1] + " " + "Prosjek: "
+	    	   + niz[2] + " " + "Student ce za 5 godina imati: " + godine + "godina";
+	       }
+	
+	
+	public static void main(String[] args) {
+	
+		String podaci = "Emina;20;Rozaje";
+		//System.out.println(dajPodatke(podaci));
+		
+		// 1. Izdvojiti iz stringa ime, godine i grad
+		// 2. Izdvojiti podatke i izracunati koliko ce student imati godina za 5 godina
+		//String s = "Emina;20;9.57";
+		//System.out.println(podaciIGodine(s));
+		/*String [] niz = podaci.split(";");
+		//niz[0] = ime
+		//niz[1] = godine
+		//niz[2] = grad
+		System.out.println("Ime: " + niz[0] + " "+ 
+		"Godine: " + niz[1] + " "+ "Grad: " + niz[2]);*/
+		
+	}
+
+}
+
+
+public class Zadaci1 {
+   
+	public static String obradaLaptop(String l) {
+		String[]niz = l.split(";");
+		double cijena = Double.parseDouble(niz[1]);
+		int kolicina = Integer.parseInt(niz[2]);
+		double ukupnaCijena = cijena * kolicina;
+		
+		return "Naziv: " + niz[0] + " " + "Cijena: " + cijena + " " + "Kolicina: "
+		+ kolicina + " " + "Ukupna cijena: " + ukupnaCijena + " " + "eura";
+	}
+	
+	   public static String Student (String student) {
+		   String oznaka = student.substring(0, 2);
+		   String godina = student.substring(2,6);
+		   String indeks = student.substring(7);
+		   
+		   return "Oznaka: " + oznaka + " " + "Godina: " + godina + " "
+				   + "Broj indexa: " + indeks + " ";
+	   }
+	
+	public static void main(String[] args) {
+	 //3. Obrada podataka o proizvodu, izdvojiti naziv,
+		//cijenu i kolicinu, i izracunati ukupnu cijenu
+		//String l = "LapTop;750.50;2";
+		//System.out.println(obradaLaptop(l));
+		
+		//4. Izdvajanje podataka iz sifre
+		
+		String student = "ST2026-046";
+		System.out.println(Student(student));
+		// ST- oznaka studenta
+		//2026 - godina upisa
+		// 046 - broj indeksa
+
+		
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
