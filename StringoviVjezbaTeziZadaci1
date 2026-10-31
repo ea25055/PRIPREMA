@@ -1,0 +1,106 @@
+
+public class Zadaci2 {
+
+	public static String obradiStudenta(String student) {
+		String []niz = student.split(";");
+		String oznaka = student.substring(0,2);
+		String godinaUpisa = student.substring(2,6);
+		String brojIndexa = student.substring(7,10);
+		String ime = niz[1];
+		String prosjek = niz[2];
+		int godinaUpisaint = Integer.parseInt (godinaUpisa);
+		int prosloGodina = 2026 - godinaUpisaint;
+		    return "Oznaka studenta: " + oznaka + " " + "\nGodina upisa: " + godinaUpisa + " " +
+				"\nBroj indeksa: " + brojIndexa + " " + "\nIme: " + ime + " " + "\nProsjek: " + prosjek + " " +
+				"\nOd upisa studenta proslo je: " + prosloGodina + " " + "godina";
+		}
+	
+	  public static String obradiAutomobil (String auto) {
+		String [] niz = auto.split("\\|");
+		String oznaka = niz[0];
+		String marka = niz[1];
+		String godinaProizvodnje = niz[2];
+		String zapreminaMotora = niz[3];
+		String snaga = niz[4];
+		double konjskaSnaga =Double.parseDouble(snaga);
+		double kilovati =Math.round(konjskaSnaga * 0.7355 * 100.00) / 100.0;
+	      return "\nOznaka: " + oznaka + " " + "\n Marka: " + marka + " " + "\n Godina proizvodnje: "+
+				godinaProizvodnje + " " + "\n Zapremina motora: " + zapreminaMotora + " " + "\n Konjska snaga: " +
+	      konjskaSnaga + " " + "\n Snaga u kilovatima: " + kilovati  ;
+	  }
+	   public static String obradaSenzora (String senzor) {
+		   String[]niz  = senzor.split("#");
+	   String brojSenzora =niz[0];
+	   String temp = niz[1].substring(2);
+	   String vlaznost = niz[2].substring(2);
+	   String pritisak = niz[3].substring(2);
+	   double tempKelvin = Double.parseDouble(temp);
+	   double tempCelz = tempKelvin - 273.15;
+	   double Pritisak = Double.parseDouble(pritisak);
+	   double pritisakH = Pritisak / 100;
+	   
+	   return "Broj senzora: " + brojSenzora + " " + "\nTemperatura u kelvinima: " + tempKelvin + " "+
+	   "\nTemperatura u celzijusima: " + tempCelz + " " + "\nPritisak: " + Pritisak + " " +
+	   "\nPritisak u  hektopaskalima: " + pritisakH + " ";
+		   }
+	   public static String obradiLet(String let) {
+		   String [] niz = let.split(";");
+		   String oznakaLeta =niz[0];
+		   String polazakAerodrom = niz[1];
+		   String dolazakAerodrom = niz[2];
+		   String vrijemePolaska = niz[3];
+		   String vrijemeDolaska = niz [4];
+		   String duzinaKm = niz[5];
+		   String satiPolazak = niz[3].substring(0,2);
+		   String minutiPolazak= niz[3].substring(3);
+		   String satiDolazak = niz[4].substring(0,2);
+		   String minutiDolazak = niz[4].substring(3);
+		   int sP =Integer.parseInt(satiPolazak);
+		   int mP =Integer.parseInt(minutiPolazak);
+		   int sD=Integer.parseInt(satiDolazak);
+		   int mD =Integer.parseInt(minutiDolazak);
+		   int P = sP * 60 + mP;
+		   int D = sD * 60 + mD;
+		   int trajanje = D - P;
+		   
+		   return "\nOznaka leta: " + oznakaLeta + " " + "\nAerodrom polaska: " + polazakAerodrom + " " +
+		   "\nAerodrom dolaska: " + dolazakAerodrom + " " + 
+		   "\n Vrijeme polaska i dolaska: " +
+		   vrijemePolaska + " " 
+		   + vrijemeDolaska + " " + "\nTrajanje leta u minutima: " + trajanje + " " + "minuta";
+		   
+	   }
+	
+	public static void main(String[] args) {
+  //1. Obrada studenta, podataka, i da izracuna koliko je godina
+		// proslo od upisa do 2026. godine
+	//	String student = "ST2025-034;Emina;9.57";
+	//	System.out.println(obradiStudenta(student));	
+  //2. Obrada podataka o automobilu, izdvoji sve informacije i pretvori snagu motora iz konjskih snaga
+	// u kilovate 
+		// FORMULA: P = KS * 0.7355 prikazati rez na dvije decimale
+		
+		//String auto = "PG-AB123|Volkswagen Golf|2018|1598|110";
+		//System.out.println(obradiAutomobil(auto));		
+
+		//3. Obrada podataka sa senzora 
+		//String senzor = "SEN05#T=298.15#H=65#P=101325";
+		//System.out.println(obradaSenzora(senzor));
+	//4. Podaci vezani za let
+		String let = "YM204;TGD;BEG;14:35;16:10;850";
+		System.out.println(obradiLet(let));
+         /*Gdje su:
+        • YM204 – oznaka leta
+• TGD – aerodrom polaska
+• BEG – aerodrom dolaska
+• 14:35 – vrijeme polaska
+• 16:10 – vrijeme dolaska
+• 850 – dužina leta u kilometrima
+Napisati statičku metodu obradiLet(String podaci) koja izdvaja informacije i izračunava trajanje leta u
+minutima. Metoda vraća string u JSON-sličnom formatu.
+Pretpostaviti da se polazak i dolazak odvijaju istog dana, u istoj vremenskoj zoni*/
+	}	
+		
+	}
+
+
