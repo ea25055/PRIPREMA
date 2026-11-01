@@ -1,0 +1,48 @@
+import java.util.Scanner;
+public class Niz1 {
+
+	public static void main(String[] args) {
+		// 1. Napisati program koji od korisnika trazi unos cijelog broja N, koristeci karakter * 
+		// program treba da nacrta pravougaonik visine N i sirine N+2
+		Scanner sc = new Scanner (System.in);
+		System.out.println("Unesite broj n: ");
+		
+		int n = sc.nextInt();
+		/*for (int i = 0; i<n;i++) {
+			for(int j = 0; j<n+2;j++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}*/
+		
+     //2. Napisati program koji od korisnika trazi unos cijelog 
+     // broja n i pomocu zvjezdica crta kvadrat dimenzija n x n
+		
+		/*for (int i = 0; i<n;i++) {
+			for (int j=0; j<n; j++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}*/
+	// 3. Napisati rastuci trougao
+		
+		/*for (int i = 0; i<n;i++) {
+			for (int j = 0; j<= i;j++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}*/
+	// 4. Napisati opadajuci trougao
+		
+		for (int i = 0; i<n; i++) {
+			for (int j = n; j>i; j--) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+	}
+}
+
+	
+
+
