@@ -1,0 +1,24 @@
+import java.util.Scanner;
+public class Niz2 {
+
+	public static void main(String[] args) {
+     //1. Pravougaonik, n - broj redova, m - broj zvjezdica 
+		//u svakom redu
+		Scanner sc = new Scanner (System.in);
+		System.out.println("Unesite broj redova: ");
+		int n = sc.nextInt();
+		System.out.println("Hvala! Unesite broj zvjezdica"
+				+ " u svakom redu");
+		int zvjezdice = sc.nextInt();
+		
+		for (int i = 0; i<n; i++) {
+			for (int j = 0; j< zvjezdice; j++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+		
+
+	}
+
+}
