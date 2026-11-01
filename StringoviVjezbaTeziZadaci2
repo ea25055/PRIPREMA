@@ -1,0 +1,79 @@
+
+public class Zadaci3 {
+         public static String obradiTransakciju (String banka) {
+        	 String[]niz = banka.split(";");
+        	 String brojTransakcije = niz[0];
+        	 String brojRacuna = niz[1];
+        	 String iznosTransakcije = niz[2];
+        	 String valuta = niz[3];
+        	 String datum = niz[4];
+        	 double iznos = Double.parseDouble(iznosTransakcije);
+        	 double provizija = iznos * 0.015;
+        	 provizija =Math.round(provizija * 100) / 100.00;
+        	 
+        	 return "\nBroj transakcije: " + brojTransakcije +
+        			 "\nBroj racuna: " + brojRacuna +
+        			 "\nIznos transakcije: " + iznosTransakcije + " " + valuta +
+        			 "\nDatum: " + datum +
+        			 "\nIznos provizije: " + provizija;
+        	 
+         }
+	    public static String obradiPrognozu(String podaci) {
+	    	
+	    	String [] niz = podaci.split(" ");
+	    	String oznakaStanice = niz[0];
+	    	String datumMjerenja = niz[1];
+	    	String vrijemeMjerenja = niz[2];
+	    	String tempKelvin = niz[3].substring(1);
+	    	String vlaznost = niz[4];
+	    	String pritisakP=niz[5].substring(1);
+	    	String brzinaVjetra = niz[6].substring(1);
+	    	String dan = niz[1].substring(6);
+	    	String mjesec = niz[1].substring(4,6);
+	    	String godina = niz[1].substring(0,4);
+	    	double temp = Double.parseDouble(tempKelvin);
+	    	double tempC = temp + 273.15;
+	    	double pritisak = Double.parseDouble(pritisakP);
+	    	double pritisakH = pritisak / 100.0;
+	    	double brzinaH = Double.parseDouble(brzinaVjetra);
+	    	double brzina = brzinaH / 3.6;
+	    	return "\nOznaka stanice: " + oznakaStanice + "\nDatum: " + dan + "." + mjesec + "." + godina + "." +
+	    			"\nTemp u celzijusima: " + tempC + "\nPritisak u hektopaskalima: " + pritisakH + "\nBrzina vjetra: "
+	    			+ brzina;	
+	    }
+         
+	public static void main(String[] args) {
+		/*Zadatak 6 – Obrada vremenske prognoze (15 poena)
+		Podaci su predstavljeni stringom sljedećeg oblika:*/
+		System.out.println("TEST");
+		String podaci= "MET01 20251104 0830 T29515 H078 P101325 W045";
+		System.out.println(obradiPrognozu(podaci));
+		/*Gdje su:
+		• MET01 – oznaka meteorološke stanice
+		• 20251104 – datum mjerenja (YYYYMMDD)
+		• 0830 – vrijeme mjerenja (HHMM)
+		• T29515 – temperatura u kelvinima pomnožena sa 100
+		• H078 – relativna vlažnost u procentima
+		• P101325 – atmosferski pritisak u paskalima
+		• W045 – brzina vjetra u km/h
+		Napisati statičku metodu obradiPrognozu(String poruka) koja izdvaja podatke i vraća string u
+		JSON-sličnom formatu.
+		Izvršiti sljedeće konverzije: (1) temperaturu iz kelvina u stepene Celzijusa; (2) pritisak iz paskala u
+		hektopaskale; (3) brzinu vjetra iz km/h u m/s; (4) datum prikazati u formatu DD.MM.YYYY */
+		
+		//Podaci su predstavljeni stringom sljedećeg oblika:
+		
+		//String banka = "TXN2025-0045;ME25505000012345678951;1250.75;EUR;2025-11-04";
+		//System.out.println(obradiTransakciju(banka));
+		/*Gdje su:
+		• TXN2025-0045 – identifikacioni broj transakcije
+		• ME25505000012345678951 – broj računa
+		• 1250.75 – iznos transakcije
+		• EUR – valuta
+		• 2025-11-04 – datum transakcije
+		Napisati statičku metodu obradiTransakciju(String podaci) koja izdvaja sve podatke i izračunava
+		proviziju banke u iznosu od 1,5% transakcije. Metoda vraća string u JSON-sličnom formatu.
+		Proviziju zaokružiti na dvije decimale.*/
+	}
+
+}
