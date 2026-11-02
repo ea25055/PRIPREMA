@@ -1,0 +1,178 @@
+
+public class Kola {
+     private String marka;
+     private int godinaProizvodnje;
+     private double cijena;
+     private boolean automatik;
+	 public Kola(String marka, int godinaProizvodnje, double cijena, boolean automatik) {
+		super();
+		this.marka = marka;
+		this.godinaProizvodnje = godinaProizvodnje;
+		this.cijena = cijena;
+		this.automatik = automatik;
+	 }
+	 public Kola() {
+		super();
+	 }
+	 public String getMarka() {
+		 return marka;
+	 }
+	 public void setMarka(String marka) {
+		 this.marka = marka;
+	 }
+	 public int getGodinaProizvodnje() {
+		 return godinaProizvodnje;
+	 }
+	 public void setGodinaProizvodnje(int godinaProizvodnje) {
+		 this.godinaProizvodnje = godinaProizvodnje;
+	 }
+	 public double getCijena() {
+		 return cijena;
+	 }
+	 public void setCijena(double cijena) {
+		 this.cijena = cijena;
+	 }
+	 public boolean isAutomatik() {
+		 return automatik;
+	 }
+	 public void setAutomatik(boolean automatik) {
+		 this.automatik = automatik;
+	 }
+
+	 public String toString() {
+		return "Kola [marka=" + marka + ", godinaProizvodnje=" + godinaProizvodnje + ", cijena=" + cijena
+				+ ", automatik=" + automatik + "]";
+	 }
+    import java.util.ArrayList;
+public class KolaTest {
+
+	    public static void proizvedeniNakon(ArrayList<Kola>lista, int godina) {
+	    	for (Kola k:lista) {
+	    		if(k.getGodinaProizvodnje() > godina) {
+	    			System.out.println(k);
+	    		}
+	    		
+	      	}
+	    }
+	
+	   public static Kola najskupljeAuto (ArrayList<Kola>lista) {
+		   Kola najskuplja = lista.get(0);
+		   for (Kola k:lista) {
+			   if (najskuplja.getCijena() < k.getCijena()) {
+				   najskuplja = k;
+			   }
+		   }
+		   return najskuplja;
+	   }
+
+	public static void main(String[] args) {
+		Kola k1 = new Kola ("AUDI",1999,7.900,true);
+		Kola k2 = new Kola ("Toureg",2020,12.000,true);
+		Kola k3 = new Kola ("Tiguan", 2010,4.000,false);
+		Kola k4 = new Kola ("Mercedes",2023,10.000,true);
+		Kola k5 = new Kola ("Audi",2025,30.000,true);
+		
+		ArrayList<Kola>lista = new ArrayList<>();
+		lista.add(k1);
+		lista.add(k2);
+		lista.add(k3);
+		lista.add(k4);
+		lista.add(k5);
+		//proizvedeniNakon(lista,2024);
+		System.out.println(najskupljeAuto(lista));
+	}
+
+}
+ 
+public class Student {
+   private String ime;
+   private String brojIndeksa;
+   private int godinaStudija;
+   private double prosjek;
+   
+   
+   public Student(String ime, String brojIndeksa, int godinaStudija, double prosjek) {
+	super();
+	this.ime = ime;
+	this.brojIndeksa = brojIndeksa;
+	this.godinaStudija = godinaStudija;
+	this.prosjek = prosjek;
+   }
+   public Student() {
+	super();
+   }
+   public String getIme() {
+	return ime;
+   }
+   public void setIme(String ime) {
+	this.ime = ime;
+   }
+   public String getBrojIndeksa() {
+	return brojIndeksa;
+   }
+   public void setBrojIndeksa(String brojIndeksa) {
+	this.brojIndeksa = brojIndeksa;
+   }
+   public int getGodinaStudija() {
+	return godinaStudija;
+   }
+   public void setGodinaStudija(int godinaStudija) {
+	this.godinaStudija = godinaStudija;
+   }
+   public double getProsjek() {
+	return prosjek;
+   }
+   public void setProsjek(double prosjek) {
+	this.prosjek = prosjek;
+   }
+   
+   public String toString() {
+	return "Student [ime=" + ime + ", brojIndeksa=" + brojIndeksa + ", godinaStudija=" + godinaStudija + ", prosjek="
+			+ prosjek + "]";
+   }
+   
+   
+}
+import java.util.ArrayList;
+public class StudentTest {
+         public static double najveciProsjek (ArrayList<Student>lista) {
+        	 double najveci = lista.get(0).getProsjek();
+        	 for (Student s: lista) {
+        		  if (s.getProsjek()>najveci) {
+        			najveci = s.getProsjek();
+        		  }
+        	 }
+        		  return najveci;
+        	  
+         }
+	 
+         public static void studentiSaGodine (ArrayList<Student>lista, int godina) {
+        	 for (Student s:lista) {
+        		 if (godina == s.getGodinaStudija()) {
+        			 System.out.println(s);
+        		 }
+        	 }
+        	 
+     }
+	    
+	public static void main(String[] args) {
+		
+		Student s1 = new Student ("Hana Nisic","25/043",2,8.9);
+		Student s2 = new Student ("Anastasija Bubanja","25/076",2,9.8);
+		Student s3 = new Student ("Sofija Simonovic","6/7",2,9.99);
+		Student s4 = new Student ("Emina Adrovic","25/055",2, 6.7);
+		
+		
+      ArrayList<Student>lista = new ArrayList<>();
+      lista.add(s1);
+      lista.add(s2);
+      lista.add(s3);
+      lista.add(s4);
+     // System.out.println("Najveci prosjek je: " + (najveciProsjek(lista)));
+      studentiSaGodine(lista,2);
+	}
+
+}
+
+     
+}
