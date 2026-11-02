@@ -175,4 +175,61 @@ public class StudentTest {
 }
 
      
+public class Vjetrometar {
+   private String nazivMjerneStanice;
+   private String datumVrijemeOcitavanja;
+   private double maxBrzinaVjetra;
+   private double srednjaBrzinaVjetra;
+   private double pravacVjetra;
+   public String getNazivMjerneStanice() {
+	return nazivMjerneStanice;
+   }
+   public void setNazivMjerneStanice(String nazivMjerneStanice) {
+	this.nazivMjerneStanice = nazivMjerneStanice;
+   }
+   public String getDatumVrijemeOcitavanja() {
+	return datumVrijemeOcitavanja;
+   }
+   public void setDatumVrijemeOcitavanja(String datumVrijemeOcitavanja) {
+	this.datumVrijemeOcitavanja = datumVrijemeOcitavanja;
+   }
+   public double getMaxBrzinaVjetra() {
+	return maxBrzinaVjetra;
+   }
+   public void setMaxBrzinaVjetra(double maxBrzinaVjetra) {
+	this.maxBrzinaVjetra = maxBrzinaVjetra;
+   }
+   public double getSrednjaBrzinaVjetra() {
+	return srednjaBrzinaVjetra;
+   }
+   public void setSrednjaBrzinaVjetra(double srednjaBrzinaVjetra) {
+	this.srednjaBrzinaVjetra = srednjaBrzinaVjetra;
+   }
+   public double getPravacVjetra() {
+	return pravacVjetra;
+   }
+   public void setPravacVjetra(double pravacVjetra) {
+	this.pravacVjetra = pravacVjetra;
+   }
+   public Vjetrometar(String nazivMjerneStanice, String datumVrijemeOcitavanja, double maxBrzinaVjetra,
+		double srednjaBrzinaVjetra, double pravacVjetra) {
+	super();
+	this.nazivMjerneStanice = nazivMjerneStanice;
+	this.datumVrijemeOcitavanja = datumVrijemeOcitavanja;
+	this.maxBrzinaVjetra = maxBrzinaVjetra;
+	this.srednjaBrzinaVjetra = srednjaBrzinaVjetra;
+	this.pravacVjetra = pravacVjetra;
+   }
+   public Vjetrometar() {
+	super();
+   }
+   public String toString() {
+	return "Vjetrometar [nazivMjerneStanice=" + nazivMjerneStanice + ", datumVrijemeOcitavanja="
+			+ datumVrijemeOcitavanja + ", maxBrzinaVjetra=" + maxBrzinaVjetra + ", srednjaBrzinaVjetra="
+			+ srednjaBrzinaVjetra + ", pravacVjetra=" + pravacVjetra + "]";
+   }
+   
+   
+}
+
 }
