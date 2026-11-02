@@ -1,0 +1,489 @@
+
+public class Let {
+   private String brojLeta;
+   private String destinacija;
+   private int brojPutnika;
+   private double cijenaKarte;
+   private boolean direktanLet;
+   public Let(String brojLeta, String destinacija, int brojPutnika, double cijenaKarte, boolean direktanLet) {
+	super();
+	this.brojLeta = brojLeta;
+	this.destinacija = destinacija;
+	this.brojPutnika = brojPutnika;
+	this.cijenaKarte = cijenaKarte;
+	this.direktanLet = direktanLet;
+   }
+   public Let() {
+	super();
+	
+   }
+   public String getBrojLeta() {
+	return brojLeta;
+   }
+   public void setBrojLeta(String brojLeta) {
+	this.brojLeta = brojLeta;
+   }
+   public String getDestinacija() {
+	return destinacija;
+   }
+   public void setDestinacija(String destinacija) {
+	this.destinacija = destinacija;
+   }
+   public int getBrojPutnika() {
+	return brojPutnika;
+   }
+   public void setBrojPutnika(int brojPutnika) {
+	this.brojPutnika = brojPutnika;
+   }
+   public double getCijenaKarte() {
+	return cijenaKarte;
+   }
+   public void setCijenaKarte(double cijenaKarte) {
+	this.cijenaKarte = cijenaKarte;
+   }
+   public boolean isDirektanLet() {
+	return direktanLet;
+   }
+   public void setDirektanLet(boolean direktanLet) {
+	this.direktanLet = direktanLet;
+   }
+
+   public String toString() {
+	return "Let [brojLeta=" + brojLeta + ", destinacija=" + destinacija + ", brojPutnika=" + brojPutnika
+			+ ", cijenaKarte=" + cijenaKarte + ", direktanLet=" + direktanLet + "]";
+   }
+   import java.util.ArrayList;
+public class LetTest {
+
+	    public static void letoviZa(ArrayList<Let>lista, String destinacija) {
+	    	for (Let l: lista) {
+	    		if (l.getDestinacija().equals(destinacija)) {
+	    			System.out.println(l);
+	    		}
+	    	}
+	    	
+	    }
+	public static double najskupljaKarta (ArrayList<Let>lista, String destinacija, boolean direktno) {
+		double najskuplja = lista.get(0).getCijenaKarte();
+		for (Let l:lista) {
+			if (najskuplja < l.getCijenaKarte()) {
+				najskuplja = l.getCijenaKarte();
+			}
+		}
+		return najskuplja;
+	}
+	public static void main(String[] args) {
+		 Let l1 = new Let ("1232","Pariz",122,100.00,true);
+		 Let l2 = new Let ("1231","London",12,140.00,false);
+		 Let l3 = new Let ("1235","New York",1222,1030.00,true);
+		 Let l4 = new Let ("122","Pariz",121,1020.00,false);
+		 Let l5 = new Let ("12334","Rasadnik",1222,100.00,true);
+		 Let l6 = new Let ("12342","Tivat",100,10.00,true);
+		 
+		 ArrayList<Let>lista = new ArrayList<>();
+		 lista.add(l1);
+		 lista.add(l2);
+		 lista.add(l3);
+		 lista.add(l4);
+		 lista.add(l5);
+		 lista.add(l6);
+     letoviZa(lista,"Pariz");
+    System.out.println(najskupljaKarta(lista,"Pariz", true));
+		 
+	}
+
+}
+
+public class Rezervacija {
+   private String imeGosta;
+   private int brojSobe;
+   private int brojNoci;
+   private double cijenaPoNocenju;
+   private boolean dorucak;
+   public String getImeGosta() {
+	return imeGosta;
+   }
+   public void setImeGosta(String imeGosta) {
+	this.imeGosta = imeGosta;
+   }
+   public int getBrojSobe() {
+	return brojSobe;
+   }
+   public void setBrojSobe(int brojSobe) {
+	this.brojSobe = brojSobe;
+   }
+   public int getBrojNoci() {
+	return brojNoci;
+   }
+   public void setBrojNoci(int brojNoci) {
+	this.brojNoci = brojNoci;
+   }
+   public double getCijenaPoNocenju() {
+	return cijenaPoNocenju;
+   }
+   public void setCijenaPoNocenju(double cijenaPoNocenju) {
+	this.cijenaPoNocenju = cijenaPoNocenju;
+   }
+   public boolean isDorucak() {
+	return dorucak;
+   }
+   public void setDorucak(boolean dorucak) {
+	this.dorucak = dorucak;
+   }
+   public Rezervacija(String imeGosta, int brojSobe, int brojNoci, double cijenaPoNocenju, boolean dorucak) {
+	super();
+	this.imeGosta = imeGosta;
+	this.brojSobe = brojSobe;
+	this.brojNoci = brojNoci;
+	this.cijenaPoNocenju = cijenaPoNocenju;
+	this.dorucak = dorucak;
+   }
+   public Rezervacija() {
+	super();
+   }
+   public String toString() {
+	return "Rezervacija [imeGosta=" + imeGosta + ", brojSobe=" + brojSobe + ", brojNoci=" + brojNoci
+			+ ", cijenaPoNocenju=" + cijenaPoNocenju + ", dorucak=" + dorucak + "]";
+   }
+   
+}
+
+public class Rezervacija {
+   private String imeGosta;
+   private int brojSobe;
+   private int brojNoci;
+   private double cijenaPoNocenju;
+   private boolean dorucak;
+   public String getImeGosta() {
+	return imeGosta;
+   }
+   public void setImeGosta(String imeGosta) {
+	this.imeGosta = imeGosta;
+   }
+   public int getBrojSobe() {
+	return brojSobe;
+   }
+   public void setBrojSobe(int brojSobe) {
+	this.brojSobe = brojSobe;
+   }
+   public int getBrojNoci() {
+	return brojNoci;
+   }
+   public void setBrojNoci(int brojNoci) {
+	this.brojNoci = brojNoci;
+   }
+   public double getCijenaPoNocenju() {
+	return cijenaPoNocenju;
+   }
+   public void setCijenaPoNocenju(double cijenaPoNocenju) {
+	this.cijenaPoNocenju = cijenaPoNocenju;
+   }
+   public boolean isDorucak() {
+	return dorucak;
+   }
+   public void setDorucak(boolean dorucak) {
+	this.dorucak = dorucak;
+   }
+   public Rezervacija(String imeGosta, int brojSobe, int brojNoci, double cijenaPoNocenju, boolean dorucak) {
+	super();
+	this.imeGosta = imeGosta;
+	this.brojSobe = brojSobe;
+	this.brojNoci = brojNoci;
+	this.cijenaPoNocenju = cijenaPoNocenju;
+	this.dorucak = dorucak;
+   }
+   public Rezervacija() {
+	super();
+   }
+   public String toString() {
+	return "Rezervacija [imeGosta=" + imeGosta + ", brojSobe=" + brojSobe + ", brojNoci=" + brojNoci
+			+ ", cijenaPoNocenju=" + cijenaPoNocenju + ", dorucak=" + dorucak + "]";
+   }
+   
+}
+import java.util.ArrayList;
+public class TestRezervacija {
+
+	  //Ispisati sve rezervacije za dati broj sobe
+	public static void brojSobeInfo (ArrayList<Rezervacija>lista, int brojSobe) {
+		for (Rezervacija r:lista) {
+			if (brojSobe == r.getBrojSobe()) {
+				System.out.println(r);
+			}
+		}
+	}
+	
+	//Vraca najvecu cijenu po noci medju rezervacijama koje imaju najmaje zadati broj noci i 
+	// imaju ukljucen dorucak
+	
+	public static double najvecaCijena (ArrayList<Rezervacija>lista,int brojNocenja,boolean breakfast) {
+		double najveca = lista.get(0).getCijenaPoNocenju();
+		for (Rezervacija r:lista) {
+			if (brojNocenja <= r.getBrojNoci() 
+					&& breakfast == true ) {
+				if (r.getCijenaPoNocenju()> najveca) {
+					najveca = r.getCijenaPoNocenju();
+				}
+				
+			}
+		}
+		return najveca;
+	}
+	
+	
+	
+	
+	
+	
+	
+	public static void main(String[] args) {
+		
+	   Rezervacija r1 = new Rezervacija ("Hana Nisic",12,2,14.00,true);
+	   Rezervacija r2 = new Rezervacija ("Hana Softic",13,3,15.00,false);
+	   Rezervacija r3 = new Rezervacija ("Sofija Simonovic",10,1,14.00,true);
+	   Rezervacija r4 = new Rezervacija ("Nejla Adrovic",15,2,11.00,false);
+	   Rezervacija r5 = new Rezervacija ("Rijad Suljovic",132,5,14.50,true);
+    
+	    ArrayList<Rezervacija>lista = new ArrayList<>();
+	    lista.add(r1);
+	    lista.add(r2);
+	    lista.add(r3);
+	    lista.add(r4);
+	    lista.add(r5);
+	    brojSobeInfo(lista,12);
+	    System.out.println(najvecaCijena(lista,2,false));
+	   
+	   
+	}
+
+}
+
+public class Ispit {
+  private String predmet;
+  private String datum;
+  private int brojStudenata;
+  private double prosjecnaOcjena;
+  private boolean polozen;
+  public Ispit(String predmet, String datum, int brojStudenata, double prosjecnaOcjena, boolean polozen) {
+	super();
+	this.predmet = predmet;
+	this.datum = datum;
+	this.brojStudenata = brojStudenata;
+	this.prosjecnaOcjena = prosjecnaOcjena;
+	this.polozen = polozen;
+  }
+  public Ispit() {
+	super();
+  }
+  public String toString() {
+	return "Ispit [predmet=" + predmet + ", datum=" + datum + ", brojStudenata=" + brojStudenata + ", prosjecnaOcjena="
+			+ prosjecnaOcjena + ", polozen=" + polozen + "]";
+  }
+  public String getPredmet() {
+	return predmet;
+  }
+  public void setPredmet(String predmet) {
+	this.predmet = predmet;
+  }
+  public String getDatum() {
+	return datum;
+  }
+  public void setDatum(String datum) {
+	this.datum = datum;
+  }
+  public int getBrojStudenata() {
+	return brojStudenata;
+  }
+  public void setBrojStudenata(int brojStudenata) {
+	this.brojStudenata = brojStudenata;
+  }
+  public double getProsjecnaOcjena() {
+	return prosjecnaOcjena;
+  }
+  public void setProsjecnaOcjena(double prosjecnaOcjena) {
+	this.prosjecnaOcjena = prosjecnaOcjena;
+  }
+  public boolean isPolozen() {
+	return polozen;
+  }
+  public void setPolozen(boolean polozen) {
+	this.polozen = polozen;
+  }
+  
+  
+}
+import java.util.ArrayList;
+public class IspitTest {
+
+	   public static void datumIspita (ArrayList<Ispit>lista, String datum) {
+		   for (Ispit i:lista) {
+			   if (i.getDatum().equals(datum)) {
+				   System.out.println(i);
+			   }
+		   }
+	   }
+	    public static double najvecaProsjecna (ArrayList<Ispit>lista, int broj) {
+	    	double prosjecna = lista.get(0).getProsjecnaOcjena();
+	    	for (Ispit i: lista) {
+	    		if (i.isPolozen() == true) {
+	    			if (broj <= i.getBrojStudenata()) {
+	    				if (prosjecna < i.getProsjecnaOcjena()) {
+	    					prosjecna = i.getProsjecnaOcjena();
+	    				}
+	    			}
+	    		}
+	    	}
+	    	return prosjecna;
+	    }
+
+public class Apartman {
+    private int sifra;
+    private String grad;
+    private int brojNoci;
+    private double cijenaPoNoci;
+    private boolean dorucak;
+    public static double boravisnaTaksa;
+	public Apartman(int sifra, String grad, int brojNoci, double cijenaPoNoci, boolean dorucak) {
+		super();
+		this.setSifra (sifra);
+		this.grad = grad;
+		this.setBrojNoci (brojNoci);
+		this.cijenaPoNoci = cijenaPoNoci;
+		this.dorucak = dorucak;
+	}
+	public Apartman() {
+		super();
+	}
+	public String toString() {
+		return "Apartman [sifra=" + sifra + ", grad=" + grad + ", brojNoci=" + brojNoci + ", cijenaPoNoci="
+				+ cijenaPoNoci + ", dorucak=" + dorucak + "]";
+	}
+	public int getSifra() {
+		return sifra;
+	}
+	public void setSifra(int sifra) {
+		if (sifra <= 100 && sifra <= 999) {
+		} this.sifra = sifra;
+	this.sifra = 0;
+			
+	}
+	public String getGrad() {
+		return grad;
+	}
+	public void setGrad(String grad) {
+		this.grad = grad;
+	}
+	public int getBrojNoci() {
+		return brojNoci;
+	}
+	public void setBrojNoci(int brojNoci) {
+		if (brojNoci >= 1 && brojNoci <= 30) {
+		}this.brojNoci = brojNoci;
+		this.brojNoci = 1;
+	}
+	public double getCijenaPoNoci() {
+		return cijenaPoNoci;
+	}
+	public void setCijenaPoNoci(double cijenaPoNoci) {
+		this.cijenaPoNoci = cijenaPoNoci;
+	}
+	public boolean isDorucak() {
+		return dorucak;
+	}
+	public void setDorucak(boolean dorucak) {
+		this.dorucak = dorucak;
+	}
+    
+    public double izracunajCijenu() {
+    	double cijena = 0.00;
+    	cijena = brojNoci * cijenaPoNoci + boravisnaTaksa;
+    	if (dorucak == true) {
+    		cijena = cijena + 20.00;
+    	}
+    	if (brojNoci >= 7) {
+    		cijena = cijena - 0.10;
+    	}
+    	return cijena;
+    }
+	
+	
+}
+import java.util.ArrayList;
+public class ApartmanTest {
+
+	public static void gradDorucak (ArrayList<Apartman>lista, String grad) {
+		for (Apartman a:lista) {
+			if (a.isDorucak()== true) {
+				if (grad.equals(a.getGrad())) {
+					System.out.println(a);
+				}
+			}
+		}
+	}
+	
+	  public static Apartman najskupljiAp (ArrayList<Apartman>lista, double min) {
+		  Apartman najveci =lista.get(0);
+		  double najveca = lista.get(0).izracunajCijenu();
+		  for (Apartman a:lista) {
+		  if (min > a.getBrojNoci()) {
+			  if (najveca < a.izracunajCijenu()) {
+				  najveca = a.izracunajCijenu();
+				  najveci = a;
+			  }
+		  }
+			  
+		  }
+	    return najveci;
+	  }
+	
+	
+	
+	public static void main(String[] args) {
+		Apartman.boravisnaTaksa = 5;
+
+		Apartman a1 = new Apartman (1232,"London",12,34.00,true);
+		Apartman a2 = new Apartman (2321,"Prijepolje",2,14.00,false);
+		Apartman a3 = new Apartman (2232,"Rozaje",3,12.00,false);
+		Apartman a4 = new Apartman (1222,"Tutin",15,11.00,true);
+		Apartman a5 = new Apartman (1101,"Podgorica",1,14.00,false);
+		
+		ArrayList <Apartman>lista = new ArrayList<>();
+		lista.add(a1);
+		lista.add(a2);
+		lista.add(a3);
+		lista.add(a4);
+		lista.add(a5);
+		//gradDorucak(lista,"Tutin");
+		System.out.println(najskupljiAp (lista, 10.00));
+	}
+
+}
+
+	   
+	   
+	
+	
+	
+	public static void main(String[] args) {
+		
+		Ispit i1 = new Ispit ("Statistika","16.03.2026",45,7.6,true);
+		Ispit i2 = new Ispit ("Makroekonomija","17.02.2026",67,6.00,true);
+		Ispit i3 = new Ispit ("OOP","02.11.2026",78,9.00,true);
+	    Ispit i4 = new Ispit ("Matematika","12.12.2026",21,5.0,false);
+	    Ispit i5 = new Ispit ("Engleski jezik","12.03.2026",32,8.9,true);
+		
+		ArrayList <Ispit>lista = new ArrayList<>();
+		lista.add(i1);
+		lista.add(i2);
+		lista.add(i3);
+		lista.add(i4);
+		lista.add(i5);
+		datumIspita(lista,"16.03.2026");
+		System.out.println(najvecaProsjecna(lista,10));
+		
+	}
+
+}
+
+   
+}
